@@ -45,6 +45,8 @@
     h1 {
         font-family: 'Bebas Neue', sans-serif;
         font-size: 6vw;
+        opacity: .7;
+        mix-blend-mode: overlay;
     }
 
     .video__title {

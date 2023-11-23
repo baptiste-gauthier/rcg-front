@@ -6,6 +6,7 @@ import Navbar from "./navbar.svelte";
 import Lenis from '@studio-freight/lenis';
 import Footer from "./footer.svelte";
 
+
 let lenisInstance: Lenis;
 
 onMount(() => {
@@ -22,6 +23,8 @@ onMount(() => {
 
     requestAnimationFrame(raf)
 })
+
+
 
 
 </script>

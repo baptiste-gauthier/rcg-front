@@ -107,6 +107,7 @@ onMount(() => {
     .swiper {
         // background-color: rgba(255, 0, 0, 0.26);
         height: 650px;
+        cursor: grab;
     }
     .discover__text {
         text-transform: uppercase;

@@ -22,6 +22,7 @@
 	"dependencies": {
 		"@directus/sdk": "^12.1.0",
 		"@studio-freight/lenis": "^1.0.27",
+		"gsap": "^3.12.2",
 		"sass": "^1.69.5",
 		"swiper": "^11.0.3"
 	}

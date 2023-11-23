@@ -12,9 +12,61 @@
     import logoPartner4 from "../../lib/assets/logo-arte-capoeira 1.png";
     import logoPartner5 from "../../lib/assets/Venum_Logo 1.png";
     import logoPartner6 from "../../lib/assets/dragon-bleu-logo 1.png";
-  import SliderDiscover from "../../component/sliderDiscover.svelte";
+    import SliderDiscover from "../../component/sliderDiscover.svelte";
+    import { gsap } from "gsap";
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        const section = document.querySelector('.swiper');
+        const ball: HTMLElement = document.querySelector('.ball') as HTMLElement;
+
+                
+        if (ball !== null && section !== null) {
+    gsap.set(".ball", { xPercent: -50, yPercent: -50 });
+
+    let xTo = gsap.quickTo(".ball", "x", { duration: 0.6, ease: "power3" });
+    let yTo = gsap.quickTo(".ball", "y", { duration: 0.6, ease: "power3" });
+
+    section.addEventListener("mouseenter", () => {
+        // Survol du bloc, activer l'animation
+        gsap.to(".ball", { scale: 1, duration: 0.6, ease: "power3" });
+    });
+
+    section.addEventListener("mouseleave", () => {
+        // Sortie du bloc, désactiver l'animation
+        gsap.to(".ball", { scale: 0, duration: 0.6, ease: "power3" });
+    });
+
+    window.addEventListener("mousemove", (e) => {
+        // Vérifier si la souris est à l'intérieur du bloc avant de mettre à jour les coordonnées
+        if (isMouseInsideSection(e, section)) {
+            xTo(e.clientX);
+            yTo(e.clientY);
+        }
+    });
+
+    // Fonction pour vérifier si la souris est à l'intérieur du bloc
+    function isMouseInsideSection(event: any, element: any) {
+        const rect = element.getBoundingClientRect();
+        return (
+            event.clientX >= rect.left &&
+            event.clientX <= rect.right &&
+            event.clientY >= rect.top &&
+            event.clientY <= rect.bottom
+        );
+    }
+}
+        
+        
+    })
 
 </script>
+
+<div class="ball"><svg width="37" height="16" viewBox="0 0 67 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M65.8464 19.4231L1.00024 19.4231M1.00024 19.4231L19.0566 1.36678M1.00024 19.4231L19.0566 37.4794" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>DRAG<svg width="37" height="16" viewBox="0 0 67 39" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.00024 19.4231H65.8464M65.8464 19.4231L47.7901 37.4794M65.8464 19.4231L47.7901 1.36677" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg></div>
 
 <section id="we_are">
     <h2> Qui sommes nous ?</h2>
@@ -65,12 +117,12 @@ Notre équipe est là pour vous aider à concrétiser vos idées de personnalisa
 <section id="trust">
     <h2 class="text-center">Ils nous font confiance</h2>
     <div class="gallerie">
-        <div class="gallery__line_one">
+        <div class="gallery__bloc gallery__line_one">
             <div><img src="{logoPartner1}" alt="logo partenaires"></div>
             <div><img src="{logoPartner2}" alt="logo partenaires"></div>
             <div><img src="{logoPartner3}" alt="logo partenaires"></div>
         </div>
-        <div class="gallery__line_two">
+        <div class="gallery__bloc gallery__line_two">
             <div><img src="{logoPartner4}" alt="logo partenaires"></div>
             <div><img src="{logoPartner5}" alt="logo partenaires"></div>
             <div><img src="{logoPartner6}" alt="logo partenaires"></div>
@@ -119,12 +171,14 @@ Notre équipe est là pour vous aider à concrétiser vos idées de personnalisa
         gap: 4rem;
         & img {
             width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
     }
     .gallery__line_one, .gallery__line_two {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: space-evenly;
         & > div {
             width: 200px;
         }
@@ -132,5 +186,33 @@ Notre équipe est là pour vous aider à concrétiser vos idées de personnalisa
     #discover {
         background-color: #2C2C2C;
         color: white;
+    }
+    .gallery__bloc {
+        & > div {
+            height: 150px;
+            width: 150px;
+        }
+    }
+
+    :global(.ball) {
+        mix-blend-mode: difference;
+        width: 350px;
+        height: 350px;
+        position: fixed;
+        z-index: 100;
+        top: 0;
+        left: 0;
+        border-radius: 50%;
+        pointer-events: none;
+        background-color: transparent;
+        color: #FFFFFF;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // padding: 2rem;
+        & svg {
+            margin: 0 1rem;
+        }
     }
 </style>

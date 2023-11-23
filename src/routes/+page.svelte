@@ -63,7 +63,7 @@
      firstName="John" lastName="Doe" job="Web Developper" />
 </section>
 
-<style>
+<style lang="scss">
     .section__intro {
         display: flex;
         flex-direction: column;
