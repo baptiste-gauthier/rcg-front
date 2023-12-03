@@ -17,7 +17,7 @@
 
 <style lang="scss">
     #banner {
-        height: 25vh;
+        height: 35vh;
         padding: 0;
         background-position: center;
         background-repeat: no-repeat;

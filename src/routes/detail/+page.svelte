@@ -183,7 +183,7 @@
   }
   .swiper {
     width: 100%;
-    height: 700px;
+    height: 70vh;
   }
   .content__information {
     display: flex;
