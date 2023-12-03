@@ -2,6 +2,7 @@
     import type {PageData} from "./$types";
     import img from '../../lib/assets/vladislav-bychkov-CcJpFWrXlb8-unsplash(1).jpg'
   import Band from "../../component/band.svelte";
+  import AllProduct from "../../component/allProduct.svelte";
 
     export let data : PageData;
 
@@ -15,7 +16,7 @@
             <label for="category-select">Catégorie </label>
 
             <select name="category" id="category-select">
-                <option value="">--Choisir une discipline--</option>
+                <option value="">Choisir une discipline</option>
                 <option value="mma">MMA</option>
                 <option value="football">Football</option>
                 <option value="boxe">Boxe</option>
@@ -25,7 +26,7 @@
             <label for="size-select">Taille</label>
 
             <select name="select" id="size-select">
-                <option value="">--Choisir une taille--</option>
+                <option value="">Choisir une taille</option>
                 <option value="S">S</option>
                 <option value="M">M</option>
                 <option value="L">L</option>
@@ -35,7 +36,7 @@
             <label for="color-select">Couleurs</label>
 
             <select name="color" id="color-select">
-            <option value="">--Choisir une couleur--</option>
+            <option value="">Choisir une couleur</option>
             <option value="black">Noir</option>
             <option value="white">Blanc</option>
             <option value="red">Rouge</option>
@@ -44,16 +45,22 @@
     </div>
 </section>
 
-{#if data.products && data.products.length !== 0}
+<!-- {#if data.products && data.products.length !== 0}
     {#each data.products as product (product.id)}
         {product.name}
     {/each}
 {:else}
-    <!-- Gérer le cas où data.products est undefined ou vide -->
+    Gérer le cas où data.products est undefined ou vide
     <p>Aucun produit n'est disponible.</p>
-{/if}
+{/if} -->
+
+<AllProduct />
 
 <style lang="scss">
+
+    #filter {
+        padding-top: var(--padding-vertical);
+    }
 
     .select__filter {
         display: flex;

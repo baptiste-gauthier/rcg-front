@@ -1,7 +1,7 @@
 <script lang="ts">
 
     import Swiper from 'swiper';
-    import { Navigation, Pagination } from 'swiper/modules';
+    import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 
     import 'swiper/css';
     import 'swiper/css/navigation';
@@ -21,6 +21,7 @@ onMount(() => {
     slidesPerView : 3,
     spaceBetween: 30,
     cssMode: false,
+    autoplay: true,
 
     // If we need pagination
     pagination: {
@@ -37,7 +38,7 @@ onMount(() => {
     scrollbar: {
         el: '.swiper-scrollbar',
     },
-    modules: [Navigation, Pagination],
+    modules: [Navigation, Pagination, Autoplay],
     });
 
     swiper.on('slideChange', function () {

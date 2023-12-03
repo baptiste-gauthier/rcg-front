@@ -8,7 +8,7 @@
         <h1>{title}</h1>
     </div>
     <div class="band__path_way">
-        <p>Accueil >> nos produits >> mma </p>
+        <p>Accueil >> nos produits >> <span class="active">mma</span></p>
     </div>
 </div>
 
@@ -39,5 +39,8 @@
         bottom: calc(var(--padding-vertical) / 3);
         font-size: .8rem;
         left: var(--padding-horizontal);
+    }
+    .active {
+        text-decoration: underline;
     }
 </style>

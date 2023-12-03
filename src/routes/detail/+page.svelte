@@ -47,26 +47,36 @@
 
 <section id="detail">
   <div class="detail__container">
-    <div class="detail__slider">
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <div class="detail__img">
-              <img src={img1} alt="produit rcg" />
+    <div class="detail__content__img">
+      <div class="detail__secondary__img">
+        <div class="detail__container__secondary__img">
+          <img src="{img1}" alt="produit">
+        </div>
+        <div class="detail__container__secondary__img">
+          <img src="{img1}" alt="produit">
+        </div>
+      </div>
+      <div class="detail__slider">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="detail__img">
+                <img src={img1} alt="produit rcg" />
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="detail__img">
+                <img src={img1} alt="produit rcg" />
+              </div>
             </div>
           </div>
-          <div class="swiper-slide">
-            <div class="detail__img">
-              <img src={img1} alt="produit rcg" />
-            </div>
-          </div>
+
+          <div class="swiper-pagination" />
         </div>
 
-        <div class="swiper-pagination" />
+        <!-- <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div> -->
       </div>
-
-      <!-- <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div> -->
     </div>
     <div class="detail__informations">
       <h2>TEE-SHIRT manches longues</h2>
@@ -177,9 +187,27 @@
       border-radius: 15px;
     }
   }
-  .detail__slider {
-    width: 100%;
+  .detail__secondary__img {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+  }
+  .detail__content__img {
+    display: flex;
+    gap: 1rem;
     height: fit-content;
+    position: sticky;
+    top: 180px;
+  }
+  .detail__slider {
+    width: 80%;
   }
   .swiper {
     width: 100%;
@@ -300,9 +328,5 @@
     text-transform: uppercase;
     text-align: center;
     margin: 1rem 0;
-  }
-  .detail__slider {
-    position: sticky;
-    top: 180px;
   }
 </style>
